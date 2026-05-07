@@ -1,0 +1,24 @@
+# This is a standard values.yaml file used for GitOps deployments.
+# ArgoCD will monitor this file in your repository.
+# When you trigger a deployment in the dashboard, the pipeline will 
+# automatically update the 'tag' value below to the new version.
+
+replicaCount: 1
+
+image:
+  repository: JSourabh/pipeline-deploy-argo
+  pullPolicy: IfNotPresent
+  # The DevSecOps pipeline specifically looks for this 'tag' line to update it.
+  tag: "v1.0.0"
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
